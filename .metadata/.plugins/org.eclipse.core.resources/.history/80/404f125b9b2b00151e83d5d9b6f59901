@@ -1,0 +1,28 @@
+package enoteca.unibs.it;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MagazzinoTest {
+
+
+
+	@Test
+	/**
+	 * Questo test è utilizzato per verificare l'aggiunta di un utente e la sua relativa ricerca all'interno della lista utenti
+	 * @throws Exception
+	 */
+	public void testAggiungiVino throws Exception {
+		final Magazzino magazzino = new Magazzino();
+		Vino v1 = new Vino("Barolo", "ViniGildo", 2010, 10, 1.75);
+		Vino v2 = new Vino("Lugana", "ViniGildo", 2010, 20, 1.50);
+		Vino v3 = new Vino("Barolo", "ViniGildo", 1990, 7, 10.60);
+		magazzino.aggiungiVino(v1);
+		magazzino.aggiungiVino(v2);
+		magazzino.aggiungiVino(v3);
+		
+		assertEquals(3, magazzino.getNumeroVini());
+	}
+
+}

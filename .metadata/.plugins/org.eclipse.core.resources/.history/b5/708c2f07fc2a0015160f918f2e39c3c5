@@ -1,0 +1,19 @@
+package GestioneNoleggio;
+
+import java.util.ArrayList;
+
+public class Noleggio {
+
+	private int caricoMin, durataNoleggio;
+    Mezzo mezzo;
+  
+	
+	public Noleggio(int caricoMin, int durataNoleggio){
+		this.caricoMin = caricoMin;
+		this.durataNoleggio = durataNoleggio;
+	}
+	
+	public void noleggia(int durataNoleggio, int caricoMin){
+		ArrayList<Mezzo> mezziDisp = ParcoMezzi.cercaMezzoCaricoSimile(caricoMin);
+	}
+}

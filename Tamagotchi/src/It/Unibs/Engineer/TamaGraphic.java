@@ -48,6 +48,7 @@ public class TamaGraphic {
 		btnNewButton.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 			}
 		});
 		frame.getContentPane().add(btnNewButton, BorderLayout.WEST);

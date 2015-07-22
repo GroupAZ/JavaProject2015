@@ -1,0 +1,93 @@
+package GestioneNoleggio;
+
+public class Mezzo {
+
+	private final String SI = "Si", NO = "No";
+	private final int LUNGH_COD_CASUALE = 3;
+	private static final String CASUAL_NUMERIC_STRING = "0123456789";
+	
+	private int caricoMax, costoNoleggioGiorno;
+	private String numSerie;
+	private boolean noleggiato;
+	
+	public Mezzo(int caricoMax, int costoNoleggio){
+		this.caricoMax = caricoMax;
+		this.costoNoleggioGiorno = costoNoleggio;
+		this.numSerie = generaNumSerie();
+		noleggiato = false;
+	}
+
+	/**
+	 * @return the caricoMax
+	 */
+	public int getCaricoMax() {
+		return caricoMax;
+	}
+
+	/**
+	 * @param caricoMax the caricoMax to set
+	 */
+	public void setCaricoMax(int caricoMax) {
+		this.caricoMax = caricoMax;
+	}
+
+	/**
+	 * @return the costoNoleggio
+	 */
+	public int getCostoNoleggio() {
+		return costoNoleggioGiorno;
+	}
+
+	public boolean getNoleggiato(){
+		return getNoleggiato;
+	}
+	/**
+	 * @param costoNoleggio the costoNoleggio to set
+	 */
+	public void setCostoNoleggio(int costoNoleggio) {
+		this.costoNoleggioGiorno = costoNoleggio;
+	}
+
+	/**
+	 * @return the numSerie
+	 */
+	public String getNumSerie() {
+		return numSerie;
+	}
+
+	public void setNumSerie(String numSerie){
+		this.numSerie = numSerie;
+	}
+	
+	public void setNoleggiato(){
+		noleggiato = true;
+	}
+	
+	public void setRiportato(){
+		noleggiato = false;
+	}
+	
+	/**
+	 * @param numSerie the numSerie to set
+	 */
+	public String generaNumSerie(){
+		StringBuilder stringBuilder = new StringBuilder();
+		for(int i = 0; i < LUNGH_COD_CASUALE; i++){
+			int character = (int)(Math.random()*CASUAL_NUMERIC_STRING.length());
+			stringBuilder.append(CASUAL_NUMERIC_STRING.charAt(character));
+		}
+		return stringBuilder.toString();
+	}
+	
+	/**
+	 * overriding del metodo toString
+	 */
+	public String toString(){
+		String descr = ("Numero di serie : " + numSerie + "Costo noleggio : " + costoNoleggioGiorno + "Carico massimo : " + caricoMax);
+		if(noleggiato){
+			descr = descr + SI;
+		}
+		else descr = descr + NO;
+		return descr;
+	}
+}

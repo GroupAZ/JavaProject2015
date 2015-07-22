@@ -1,0 +1,18 @@
+package enoteca.unibs.it;
+
+import static org.junit.Assert.*;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import org.junit.Test;
+
+public class VinoTest {
+
+	@Test
+	public void testToString() throws Exception {
+		
+		final Vino vino = new Vino("Barolo", "ViniGildo", 2010, 10, 1.75);
+		assertEquals(NOME + "Barolo" + CASA + "ViniGildo" + ANNATA + 2010 + QTA + 10 + BOTT + PREZZO + 1.75, vino.toString());
+
+}

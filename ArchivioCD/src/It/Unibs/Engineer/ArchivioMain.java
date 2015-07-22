@@ -1,8 +1,13 @@
 package It.Unibs.Engineer;
 
 import MyClass.MyMenu;
+import MyClass.MyScelta;
 import MyClass.MyIO.MyIOconsole;
-
+/**
+ * Main del progetto ArchivioCd
+ * @author Fapanni Tiziano & Simaz Andrea
+ *
+ */
 public class ArchivioMain {
 	
 final static String TITOLO = "ARCHIVIO CD";
@@ -29,76 +34,86 @@ final static String NUM_TRACK = "Inserisci numero traccia : ";
 		boolean sceltaUscita = true;
 		MyMenu menu = new MyMenu(TITOLO, SCELTE);
 		ArchivioCD archivio = new ArchivioCD();
-		
+		MyScelta sceltaDue= new MyScelta('y', 'n', "(y/n)? ");
+/**
+ * Menù dell'archivioCd. Per ulteriori informazioni, guardare le classi utilizzate	
+ */
 		do{
-        scelta = menu.scegli(sceltaUscita);
-		switch(scelta){
-		case 0 :
-			//System.out.println("sicuro di uscire");
-			finito = true;
-			break;
-		case 1 : 
-			Album cdNew = new Album(MyIOconsole.leggiStringa(INS_TIT), MyIOconsole.leggiStringa(INS_AUT));
-			archivio.inserisciCd(cdNew);
-			//System.out.println("vuoi aggiungere altre informazioni per l'album : ");
-			ArchivioMain.menuAlbum(cdNew);
-			break;
-		case 2 :
-			System.out.print(archivio.toString());
-			break;
-		case 3 :
-			Album cd = archivio.cercaCd(MyIOconsole.leggiStringa(INS_TIT));
-			if(cd != null){
-			System.out.print(cd);
-			ArchivioMain.menuAlbum(cd);
+			scelta = menu.scegli(sceltaUscita);
+			
+			switch(scelta){
+				case 0 :
+					System.out.println("sicuro di uscire");
+					if(sceltaDue.sceltaDueVie()==true)
+						finito = true;
+					break;
+				case 1 : 
+					Cd cdNew = new Cd(MyIOconsole.leggiStringa(INS_TIT), MyIOconsole.leggiStringa(INS_AUT));
+					boolean riuscito=archivio.inserisciCd(cdNew);
+					if(riuscito){
+						System.out.println("vuoi aggiungere altre informazioni per l'album  ");
+						if(sceltaDue.sceltaDueVie()==true)
+							ArchivioMain.menuAlbum(cdNew);
+					}
+					break;
+				case 2 :
+					System.out.print(archivio.toString());
+					break;
+				case 3 :
+					Cd cd = archivio.cercaCd(MyIOconsole.leggiStringa(INS_TIT));
+					if(cd != null){
+					System.out.print(cd.toString());
+					ArchivioMain.menuAlbum(cd);
+					}
+					else System.out.println("Album inesistente");
+					break;
+				case 4 :
+					System.out.print(archivio.cdCasuale().toString());
+					break;
+				case 5 :
+					archivio.eliminaCd(INS_TIT);
+					break;
 			}
-			else System.out.println("Album inesistente");
-			break;
-		case 4 :
-			System.out.print(archivio.cdCasuale());
-			break;
-		case 5 :
-			archivio.eliminaCd(INS_TIT);
-			break;
-		}
-			
-			
-			
+				
+				
+				
 		}while(!finito);
 	}
 	
 	
-private static void menuAlbum(Album cd){
+private static void menuAlbum(Cd cd){
 	boolean sceltaUscita = false;
 	boolean finito = false;
 	MyMenu menu = new MyMenu(TIT_MENU_ALBUM, SCELTE_ALBUM);
-	
+/**
+ * Menù del Cd. Per ulteriori informazioni, guardare le classi utilizzate	
+ */
 	do{
-	int scelta = menu.scegli(sceltaUscita);
-	
-	switch(scelta){
-		case 1 : 
-			cd.addBrano(new Brano(MyIOconsole.leggiStringa(INS_TIT), MyIOconsole.leggiIntero("durata : ")));
-			break;
-		case 2 :
-			System.out.println(cd.toString());
-			break;
-		case 3 :
-			try{
-			System.out.println(cd.selezionaBrano(MyIOconsole.leggiIntero(NUM_TRACK)));
+		int scelta = menu.scegli(sceltaUscita);
+		
+		switch(scelta){
+			case 1 : 
+				cd.aggiungiBrano(new Brano(MyIOconsole.leggiStringa(INS_TIT), MyIOconsole.leggiIntero("durata : ")));
+				break;
+			case 2 :
+				System.out.println(cd.toString());
+				break;
+			case 3 :
+				try{
+					System.out.println(cd.selezionaBrano(MyIOconsole.leggiIntero(NUM_TRACK)));
+				}
+				catch(IndexOutOfBoundsException exception){
+					System.out.print("Brano non selezionabile");
+				}
+				break;
+			case 4 :
+				System.out.println(cd.branoCasuale().toString());
+				break;
+			case 5 : 
+				finito = true;
+				break;
 			}
-			catch(IndexOutOfBoundsException exception){
-		    	System.out.print("Brano non selezionabile");
-		    }
-			break;
-		case 4 :
-		    System.out.println(cd.branoRandom());
-			break;
-		case 5 : 
-		    finito = true;
-			break;
-		}
-	
+		
 	}while(!finito);
 	
 }

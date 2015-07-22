@@ -1,0 +1,94 @@
+package GestioneNoleggio;
+
+import java.util.ArrayList;
+
+public class ParcoMezzi {
+
+	private ArrayList<Mezzo> parcoMezzi;
+	
+	public ParcoMezzi(){
+		parcoMezzi = new ArrayList<>();
+	}
+	
+	/**
+	 * Aggiunta di un mezzo al ParcoMezzi.
+	 * @param mezzo
+	 */
+	public void addMezzo(Mezzo mezzo){
+		boolean valido = true;
+		if(parcoMezzi.contains(null)){
+			valido = false;
+			throw new IllegalArgumentException("Non hai inserito niente.");
+		}
+		for(int i = 0; i < parcoMezzi.size(); i++){
+			if(parcoMezzi.get(i).getNumSerie().equals(mezzo.getNumSerie())){
+				mezzo.setNumSerie(mezzo.generaNumSerie());
+				parcoMezzi.add(mezzo);
+				valido = false;
+			}
+		}
+		if(valido){
+			parcoMezzi.add(mezzo);
+		}
+	}
+	
+	public Mezzo mezzoPrenotabile(int caricoSollevabile, int durata){
+		for(int i = 0; i < parcoMezzi.size(); i++){
+			if(parcoMezzi.get(i).getCaricoMax() >= caricoSollevabile){
+				if(parcoMezzi.get(i).getNoleggiato() == false){
+					parcoMezzi.get(i).setNoleggiato();
+					parcoMezzi.get(i).setDurataNoleggio(durata);
+				}
+			}
+		}
+		
+	}
+	
+	/**
+	 * Ricerca di un mezzo nel parco mezzi.
+	 * @param numSerie
+	 * @return
+	 */
+	public Mezzo cercaMezzo(String numSerie){
+		for(int i = 0; i < parcoMezzi.size(); i++){
+			if(parcoMezzi.get(i).generaNumSerie() == numSerie){
+				return parcoMezzi.get(i);
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Elimina un mezzo presente nel ParcoMezzi
+	 * @param numSerie
+	 */
+	public void eliminaMezzo(String numSerie){
+		boolean trovato = false;
+		for(int i = 0; i < parcoMezzi.size(); i++){
+			if(parcoMezzi.get(i).getNumSerie().equals(numSerie)){
+				trovato = true;
+				parcoMezzi.remove(i);
+			}
+		}
+		if(!trovato){
+			throw new IllegalArgumentException("Non è presente quel mezzo");
+		}
+	}
+	
+	/**
+	 * @return the parcoMezzi
+	 */
+	public ArrayList<Mezzo> getParcoMezzi() {
+		return parcoMezzi;
+	}
+
+	public String toString(){
+		String elencoMezzi = "";
+		for(Mezzo mezzo : parcoMezzi){
+			elencoMezzi = elencoMezzi + mezzo.toString() + "\n";
+		}
+		return elencoMezzi;
+	}
+	
+	
+}

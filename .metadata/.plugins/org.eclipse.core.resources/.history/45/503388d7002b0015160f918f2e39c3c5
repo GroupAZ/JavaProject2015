@@ -1,0 +1,81 @@
+package GestioneNoleggio;
+
+import MyClass.MyMenu;
+import MyClass.MyIO.MyIOconsole;
+
+public class MainNoleggio {
+
+	private static final String[] SCELTE = {"Visualizza lista automezzi",
+											"Aggiungi automezzo",
+                                            "Elimina automezzo",
+                                            "Noleggia automezzo",
+                                            "Conlcudi noleggio"};
+
+	
+	public static void main(String[] args) {
+		MyMenu menuPrincipale= new MyMenu("Gestione automezzi", SCELTE);
+		boolean finito = false;
+		ParcoMezzi parcoMezzi = new ParcoMezzi();
+				
+		do{
+			int scelta=menuPrincipale.scegli(true);
+			
+			switch(scelta){
+			case 0: //esci
+				finito=true;
+				break;
+			case 1: 
+				System.out.println(parcoMezzi.toString());
+				break;
+			case 2: 
+				try{
+					 parcoMezzi.addMezzo(new Mezzo(MyIOconsole.leggiIntero("inserisci carico massimo : "), 
+						MyIOconsole.leggiIntero("inserisci il costo del noleggio ad ora : ")));
+					}
+					catch(IllegalArgumentException e){
+						System.out.println(e.getMessage());
+					}
+				break;
+			case 3: 
+				try{
+					parcoMezzi.eliminaMezzo(MyIOconsole.leggiStringa("Inserisci numero di serie"));
+					}
+					catch(IllegalArgumentException e){
+					System.out.println(e.getMessage());
+					}
+				break;
+			case 4: 
+				try{
+				   boolean prenotato = parcoMezzi.mezzoPrenotabile(MyIOconsole.leggiIntero("Inserisci carico sollevabile : "), MyIOconsole.leggiIntero("Inserisci carico da sollevare"));
+				   if(prenotato){
+					   System.out.println("Il tuo mezzo è stato prenotato.");
+				   }
+				   else{
+					   System.out.println("Non ci sono altri mezzi");
+				   }
+				}
+				catch(IllegalArgumentException e){
+					System.out.println(e.getMessage());
+				}
+				break;
+			case 5:
+			try{
+				int prezzoDaPagare = parcoMezzi.concludiNoleggio(MyIOconsole.leggiStringa("Inserisci numero di serie : "));
+				System.out.println(prezzoDaPagare);
+			}
+			catch(IllegalArgumentException e){
+				System.out.println(e.getMessage());
+			}
+			break;
+			default: //in caso si inserisca un valore non riconosciuto (teoricamente mai applicato)
+				System.out.println("comando non riconosciuto");
+				break;
+			}
+		}while(!finito);
+	}
+
+}
+
+
+
+	

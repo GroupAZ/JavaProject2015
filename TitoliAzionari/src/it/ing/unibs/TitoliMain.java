@@ -121,6 +121,7 @@ public class TitoliMain {
 					}
 					}while(!finito1);
 					break;
+					
 			case 3://simulazione andamento giorni
 				//MyMenu mSimulazione= new MyMenu(T_SIMULAZIONE, T_SCELTA);
 				MyScelta sceltaDue=new MyScelta('y', 'n', T_SIMULAZIONE);

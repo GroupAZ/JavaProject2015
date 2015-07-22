@@ -1,0 +1,7 @@
+package GestioneNoleggio;
+
+public class noleggio {
+
+	private int durataNoleggio;
+	private int prezzoNoleggioVero;
+}

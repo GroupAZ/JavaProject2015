@@ -1,0 +1,105 @@
+package GestioneNoleggio;
+
+
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import MyClass.MyMenu;
+import MyClass.MyScelta;
+import MyClass.MyIO.MyIOconsole;
+
+public class MainNoleggio {
+
+	private static final String[] SCELTE = {"Gestione automezzi",
+                                            "Gestione noleggio automezzi"};
+	private static final String[] SCELTE_AUTO = {
+		"",
+		""
+	};
+	private static final String[] S_NOLEGGI = {"noleggia mezzo",
+		                                       "concludi noleggio mezzo"
+	}
+	
+	public static void main(String[] args){
+
+		MyMenu menuPrincipale= new MyMenu("Noleggio automezzi", SCELTE);
+		ParcoMezzi parcoMezzi = new ParcoMezzi();
+		boolean finito = false;
+		do{
+			int scelta = menuPrincipale.scegli(true);
+			
+			switch(scelta){
+				
+				case 1:                        //gestione automezzi
+					MyMenu mAutomezzi = new MyMenu("Gestione automezzi", SCELTE_AUTO);
+					
+					boolean finito2 = false;
+					
+					do{
+						int scelta2=mAutomezzi.scegli(true);
+						
+						switch(scelta2){
+							case 0:             //torna indietro
+								finito2 = true;
+								break;
+							case 1:             //visualizza mezzi presenti
+								System.out.println(parcoMezzi.toString());
+								break;
+							case 2:              //aggiungi mezzo
+								try{
+								 parcoMezzi.addMezzo(new Mezzo(MyIOconsole.leggiIntero("inserisci carico massimo : "), 
+									MyIOconsole.leggiIntero("inserisci il costo del noleggio ad ora : ")));
+								}
+								catch(IllegalArgumentException e){
+									System.out.println(e.getMessage());
+								}
+								break;
+							case 3:               //eliminazione mezzo
+								try{
+								parcoMezzi.eliminaMezzo(MyIOconsole.leggiStringa("Inserisci numero di serie"));
+								}
+								catch(IllegalArgumentException e){
+								System.out.println(e.getMessage());
+								}
+								break;
+					}while(!finito2);
+					break;
+					
+				case 2:                      //gestione noleggi
+					MyMenu mPortafoglio= new MyMenu("Gestione noleggi", S_NOLEGGI);
+			
+					boolean finito1=false;
+					
+					do{
+						int sceltaP=mPortafoglio.scegli(true);
+						
+						switch(sceltaP){
+							case 0: //torna indietro
+								finito1=true;
+								break;
+							case 1: 
+							    Noleggio noleggio = new Noleggio(MyIOconsole.leggiIntero("Carico da sollevare : "), MyIOconsole.leggiIntero("Durata del noleggio : "));
+							    
+								break;
+							
+							case 2: //aggiungi titolo
+							
+								break;
+							
+						}while(!finito1);
+						break;
+					
+				case 0: //conclude il programma
+					finito=true;
+					break;
+					
+				default:
+					System.out.println("Scelta errata");
+			}
+				
+			}while(!finito);
+		}
+				
+	}	
+}

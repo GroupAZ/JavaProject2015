@@ -1,0 +1,41 @@
+package enoteca.unibs.it;
+
+public class Vino {
+
+	private String nomeVino, casaProd;
+	
+	public Vino(String nomeVino, String casaProd){
+		this.nomeVino = nomeVino;
+		this.casaProd = casaProd; 
+	}
+
+	/**
+	 * @return the nomeVino
+	 */
+	public String getNomeVino() {
+		return nomeVino;
+	}
+
+	/**
+	 * @param nomeVino the nomeVino to set
+	 */
+	public void setNomeVino(String nomeVino) {
+		this.nomeVino = nomeVino;
+	}
+
+	/**
+	 * @return the casaProd
+	 */
+	public String getCasaProd() {
+		return casaProd;
+	}
+
+	/**
+	 * @param casaProd the casaProd to set
+	 */
+	public void setCasaProd(String casaProd) {
+		this.casaProd = casaProd;
+	}
+	
+	
+}

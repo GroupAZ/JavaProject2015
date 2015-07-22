@@ -1,0 +1,16 @@
+package GestioneNoleggio;
+
+public class Noleggio {
+
+	private int caricoMin, durataNoleggio;
+    Mezzo mezzo;
+  
+	
+	public Noleggio(int caricoMin, int durataNoleggio){
+		this.caricoMin = caricoMin;
+		this.durataNoleggio = durataNoleggio;
+		
+	}
+	
+	public void noleggia(Mezzo mezzo, int durataNoleggio)
+}

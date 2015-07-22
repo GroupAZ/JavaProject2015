@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+<fullyQualifiedTypeName name="It.Unibs.Engineer.Util"/>
+<fullyQualifiedTypeName name="java.time.Duration"/>
+<fullyQualifiedTypeName name="MyClass.Brano"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="It.Unibs.Engineer.Nazione.ValoreMedaglia"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Locale"/>
+<fullyQualifiedTypeName name="GestioneUtenze.Utenti.Genere"/>
+<fullyQualifiedTypeName name="GestioneUtenze.PersonaleMedico.Tipologia"/>
+<fullyQualifiedTypeName name="GestioneUtenze.Utente"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="GestioneUtenze.Genere"/>
+<fullyQualifiedTypeName name="java.time.format.DateTimeParseException"/>
+<fullyQualifiedTypeName name="GestioneUtenze.PersonaleMedico"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.text.Format"/>
+<fullyQualifiedTypeName name="javax.naming.Context"/>
+<fullyQualifiedTypeName name="GestioneUtenze.Costanti"/>
+<fullyQualifiedTypeName name="org.junit.internal.runners.statements.Fail"/>
+<fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+<fullyQualifiedTypeName name="java.time.format.FormatStyle"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="GestioneAttrezzatureEsercizi.ListaAttrezzature"/>
+<fullyQualifiedTypeName name="MyClass.MyVarie"/>
+<fullyQualifiedTypeName name="GestioneAttrezzatureEsercizi.Attrezzatura"/>
+<fullyQualifiedTypeName name="GestioneAttrezzatureEsercizi.Esercizio"/>
+<fullyQualifiedTypeName name="MyClass.MyMenu"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="MyClass.MyIO.MyIOFile"/>
+<fullyQualifiedTypeName name="MyClass.MyScelta"/>
+<fullyQualifiedTypeName name="MyClass.MyIO.MyIOconsole"/>
+<fullyQualifiedTypeName name="MyClass.MyIO.MyIOfile"/>
+</qualifiedTypeNameHistroy>

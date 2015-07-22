@@ -1,0 +1,58 @@
+package enoteca.unibs.it;
+
+import MyClass.MyMenu;
+import MyClass.MyScelta;
+import MyClass.MyIO.MyIOconsole;
+
+public class Aggiornamento {
+	
+	private final static String TITOLO_AGG = "Aggiornamento vini";
+	private final static String[] SCELTE_AGG = {"nome del vino",
+												"nome della casa produttrice",
+												"annata del vino",
+												"prezzo del vino"
+												};
+	private static final char S = 's', N = 'n';
+	private static final String SI_NO=" (s\\n) ";
+	private static final String SURE = "Sicuro di uscire ? ";
+	private static final String INS_NEW_NOME = "Inserisci nuovo nome del vino : ";
+	private static final String INS_NEW_CASA = "Inserisci nuova casa produttrice del vino : ";
+	private static final String INS_NEW_ANN = "Inserisci nuova annata del vino : ";
+	private static final String INS_NEW_PREZZO = "Inserisci nuovo prezzo del vino : ";
+	private static final String QTA_NON = "quantità non prelevabile";
+	
+	
+	public void aggiornaVino(Vino vino){
+		boolean esiste = true;
+		boolean finito = false;
+		boolean sceltaUscita = true;
+		if(esiste){
+			MyMenu menu = new MyMenu(TITOLO_AGG, SCELTE_AGG);
+			MyScelta sceltaDue= new MyScelta(S, N, SI_NO);
+			do{
+				int scelta = menu.scegli(sceltaUscita);
+
+				switch(scelta){
+				case 0: 
+					System.out.println(SURE);
+					if(sceltaDue.sceltaDueVie() == true)
+						finito = true;
+					break;
+				case 1 :
+					vino.setNomeVino(MyIOconsole.leggiParola(INS_NEW_NOME));
+					break;
+				case 2 :
+					vino.setCasaProd(MyIOconsole.leggiParola(INS_NEW_CASA));
+					break;
+				case 3 :
+					vino.setAnnata(MyIOconsole.leggiIntero(INS_NEW_ANN));
+					break;
+				case 4 :
+					vino.setPrezzo(MyIOconsole.leggiDouble(INS_NEW_PREZZO));
+					break;
+				}
+
+			}while(!finito);	
+		}
+	}
+}

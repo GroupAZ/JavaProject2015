@@ -1,0 +1,62 @@
+package GestioneNoleggio;
+
+public class Mezzo {
+
+	private int caricoMax, costoNoleggio;
+	private String numSerie;
+	private boolean noleggiato;
+	
+	public Mezzo(int caricoMax, int costoNoleggio, String numSerie){
+		this.caricoMax = caricoMax;
+		this.costoNoleggio = costoNoleggio;
+		this.numSerie = numSerie;
+		noleggiato = false;
+	}
+
+	/**
+	 * @return the caricoMax
+	 */
+	public int getCaricoMax() {
+		return caricoMax;
+	}
+
+	/**
+	 * @param caricoMax the caricoMax to set
+	 */
+	public void setCaricoMax(int caricoMax) {
+		this.caricoMax = caricoMax;
+	}
+
+	/**
+	 * @return the costoNoleggio
+	 */
+	public int getCostoNoleggio() {
+		return costoNoleggio;
+	}
+
+	/**
+	 * @param costoNoleggio the costoNoleggio to set
+	 */
+	public void setCostoNoleggio(int costoNoleggio) {
+		this.costoNoleggio = costoNoleggio;
+	}
+
+	/**
+	 * @return the numSerie
+	 */
+	public String getNumSerie() {
+		return numSerie;
+	}
+
+	/**
+	 * @param numSerie the numSerie to set
+	 */
+	public void setNumSerie(String numSerie) {
+		this.numSerie = numSerie;
+	}
+	
+	public String toString(){
+		String descr = 
+		return descr;
+	}
+}

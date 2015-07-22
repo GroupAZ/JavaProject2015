@@ -1,0 +1,47 @@
+package enoteca.unibs.it;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MagazzinoTest {
+
+	@Test
+	public void test() {
+		
+	}
+
+	
+	public void testAggiungiVino() throws Exception {
+		final Magazzino magazzino = new Magazzino();
+		Vino v1 = new Vino("Barolo", "ViniGildo", 2010, 10, 1.75);
+		Vino v2 = new Vino("Lugana", "ViniGildo", 2010, 20, 1.50);
+		Vino v3 = new Vino("Barolo", "ViniGildo", 1990, 7, 10.60);
+		magazzino.aggiungiVino(v1);
+		magazzino.aggiungiVino(v2);
+		magazzino.aggiungiVino(v3);
+		
+		assertEquals(3, magazzino.getNumeroVini());
+	}
+	/**
+	 * Questo test serve per verificare se un utente viene eliminato dalla lista utenti (sia metodo con e senza codice)
+	 * @throws Exception
+	 */
+	@Test
+	public void testEliminaMedico() throws Exception {
+		final UtentiOspedale utenti = new UtentiOspedale();
+		Utente ut1 = new Utente("Andrea", "Simaz", "Brescia", "03045677", date, Genere.MASCHIO, "SMZNDR95A16B157U", 25080);
+		Utente ut2 = new Utente("Tiziano", "Fapanni", "Brescia", "030456432", date2, Genere.MASCHIO, "FAPONZ95A01B158U", 25080);
+		Utente ut3 = new Utente("Tiziano", "Fapanni", "Brescia", "030456432", date2, Genere.MASCHIO, "FAPONZ95A01B158U", 25080);
+	    utenti.aggiungiUtente(ut1);
+		utenti.aggiungiUtente(ut2);
+		utenti.eliminaUtenteNoCod(ut1);
+		assertEquals(1, utenti.getNumeroUtenti());
+		assertEquals(0, utenti.cercaUtenteNoCod(ut2));
+		utenti.eliminaUtenteNoCod(ut3);
+		assertEquals(0, utenti.getNumeroUtenti());
+		//Verifica se funziona il metodo equals
+		assertTrue(ut2.equals(ut3));
+		assertFalse(ut1.equals(ut3));
+	}
+}

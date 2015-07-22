@@ -1,0 +1,17 @@
+package GestioneNoleggio;
+
+public class Noleggio {
+
+	private int caricoNoleggio;
+	private int durata;
+	
+	public Noleggio(int caricoNoleggio, int durata){
+		
+	}
+	
+	public void noleggiaMezzo(){
+		
+	}
+	
+	
+}

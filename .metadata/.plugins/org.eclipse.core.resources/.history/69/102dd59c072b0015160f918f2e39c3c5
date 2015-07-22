@@ -1,0 +1,17 @@
+package GestioneNoleggio;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class ParcoMezziTest {
+
+	@Test
+	public void test() {
+		
+	}
+
+	
+	
+	
+}

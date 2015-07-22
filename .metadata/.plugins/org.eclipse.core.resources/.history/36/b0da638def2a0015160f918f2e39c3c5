@@ -1,0 +1,13 @@
+package GestioneNoleggio;
+
+import java.util.ArrayList;
+
+public class ParcoMezzi {
+
+	private ArrayList<Mezzo> parcoMezzi;
+	
+	public ParcoMezzi(){
+		parcoMezzi = new ArrayList<>();
+	}
+	
+}

@@ -4,8 +4,7 @@ package It.Unibs.Engineer;
  * _Converte un intero in minuti e secondi;
  * _Get titolo;
  * _Get descrizione del brano.
- * @author Andrea e Tiziano
- *
+ * @author Fapanni Tiziano & Simaz Andrea
  */
 
 
@@ -46,6 +45,6 @@ public class Brano {
  * @return String descrizione della canzone con nome del brano e durata.
  */
 	public String toString(){
-		return ("Nome brano : " + titolo + " durata del brano : " + timeBrano() + "\n");
+		return (titolo +" [" + timeBrano() + "]" + "\n");
 	}
 }

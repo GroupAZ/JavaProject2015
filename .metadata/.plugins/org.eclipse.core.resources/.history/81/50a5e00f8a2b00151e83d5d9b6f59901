@@ -1,0 +1,52 @@
+package enoteca.unibs.it;
+
+public class Vino {
+
+	private String nomeVino, casaProd;
+	private int annata, quantità;
+	
+	public Vino(String nomeVino, String casaProd, int annata, int quantità){
+		this.nomeVino = nomeVino;
+		this.casaProd = casaProd; 
+		this.annata = annata;
+		this.quantità = quantità;
+	}
+
+	/**
+	 * @return the nomeVino
+	 */
+	public String getNomeVino() {
+		return nomeVino;
+	}
+
+	/**
+	 * @param nomeVino the nomeVino to set
+	 */
+	public void setNomeVino(String nomeVino) {
+		this.nomeVino = nomeVino;
+	}
+
+	/**
+	 * @return the casaProd
+	 */
+	public String getCasaProd() {
+		return casaProd;
+	}
+
+	/**
+	 * @param casaProd the casaProd to set
+	 */
+	public void setCasaProd(String casaProd) {
+		this.casaProd = casaProd;
+	}
+	
+	/**
+	 * override metodo toString()
+	 * @return String descrVino : descrizione del vino
+	 */
+	public String toString(){
+		String descrVino = ("Il nome del vino : " + nomeVino + "La casa produttrice : " + casaProd);
+		return descrVino;
+	}
+	
+}

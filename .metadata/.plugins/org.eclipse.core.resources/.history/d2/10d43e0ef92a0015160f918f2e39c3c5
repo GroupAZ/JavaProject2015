@@ -1,0 +1,14 @@
+package GestioneNoleggio;
+
+public class Noleggio {
+
+	private int durataNoleggio;
+	private int prezzoNoleggioVero;
+	
+	public Noleggio(int durataNoleggio, int prezzoNoleggioVero){
+		this.durataNoleggio = durataNoleggio;
+		this.prezzoNoleggioVero = prezzoNoleggioVero;
+	}
+	
+	public void noleggiaAuto(Mezzo)
+}

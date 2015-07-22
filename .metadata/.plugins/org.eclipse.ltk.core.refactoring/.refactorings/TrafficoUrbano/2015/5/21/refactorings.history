@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;Elemento.velocità&apos; in &apos;Elemento&apos;&#x0D;&#x0A;- Original project: &apos;TrafficoUrbano&apos;&#x0D;&#x0A;- Original element: &apos;Elemento.velocità&apos;&#x0D;&#x0A;- Getter method name: &apos;getVelocità&apos;&#x0D;&#x0A;- Setter method name: &apos;setVelocità&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;velocità&apos;" flags="589830" getter="getVelocità" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;{Elemento.java[Elemento^velocità" insertion="1" setter="setVelocità" stamp="1432047306277" version="1.0" visibility="1"/>
+</session>

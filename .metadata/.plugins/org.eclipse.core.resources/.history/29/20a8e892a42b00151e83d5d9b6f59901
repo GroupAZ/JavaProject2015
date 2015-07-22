@@ -1,0 +1,35 @@
+package enoteca.unibs.it;
+
+
+
+import java.io.File;
+import java.io.IOException;
+
+import MyClass.MyScelta;
+
+public class GestisciIO {
+
+	/**
+	 * Permette il salvataggio e il caricamento dei dati.
+	 * @author Andrea Lorenzoni
+	 */
+	public void gestisciIO(){
+		MyScelta sceltaIOFile = new MyScelta('c', 's', "carica/salva");
+		File file = new File("IOEnoteca.txt");
+
+		if(sceltaIOFile.sceltaDueVie()){
+			try {
+				Magazzino = (Clinica)MyIOFile.leggiOggetto(file);
+				System.out.println("good");
+			} catch (ClassNotFoundException | IOException e) {
+				e.printStackTrace();
+			}
+		}else{
+			try {
+				MyIOFile.scriviOggetto(file, clinica);
+				System.out.println("good");
+			} catch (IOException e) {
+				System.out.println("failed");
+			}
+		}
+}

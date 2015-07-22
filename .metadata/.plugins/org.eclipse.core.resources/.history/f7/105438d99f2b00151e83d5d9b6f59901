@@ -1,0 +1,30 @@
+package enoteca.unibs.it;
+
+import java.io.File;
+import java.io.IOException;
+
+import MyClass.MyScelta;
+
+
+public class IO {
+	public void gestisciIO(){
+		MyScelta sceltaIOFile = new MyScelta('c','s' ,"" );
+		File file = new File("IOClinica.txt");
+
+		if(sceltaIOFile.sceltaDueVie()){
+			try {
+				Magazzino = (Clinica)MyIOFile.leggiOggetto(file);
+				System.out.println(RIUSCITA);
+			} catch (ClassNotFoundException | IOException e) {
+				e.printStackTrace();
+			}
+		}else{
+			try {
+				MyIOFile.scriviOggetto(file, clinica);
+				System.out.println(RIUSCITA);
+			} catch (IOException e) {
+				System.out.println(FALLITA);
+			}
+		}
+	}
+}

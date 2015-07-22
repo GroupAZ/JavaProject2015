@@ -1,0 +1,142 @@
+package enoteca.unibs.it;
+
+import java.util.ArrayList;
+
+public class Magazzino {
+	
+	private final static String NULL = "Non hai inserito nessun vino";
+	private final static String VINO_PRESENTE = "Il vino è già presente nell'enoteca";
+	private final static String VINO_NON_PRES = "Il vino non è presente nell'eneoteca";
+	private final static String VINI_PRESENTI = "Tutti i vini presenti in enoteca sono i seguenti : \n";
+
+	ArrayList<Vino> magazzino;
+	
+	public Magazzino(){
+		magazzino = new ArrayList<>();
+	}
+	
+	/**
+	 * Aggiungi vino all'enoteca
+	 * @param vino
+	 */
+	public void aggiungiVino(Vino vino){
+		boolean valido = true;
+		if(magazzino.contains(null)){
+			valido = false;
+			throw new IllegalArgumentException(NULL);
+		}
+		for(int i = 0; i < magazzino.size(); i++){
+			if(magazzino.get(i).getNomeVino().equals(vino.getNomeVino()) && magazzino.get(i).getCasaProd().equals(vino.getCasaProd())){
+				valido = false;
+				throw new IllegalArgumentException(VINO_PRESENTE);
+			}
+		}
+		if(valido){
+			magazzino.add(vino);
+		}
+	}
+	
+	/**
+	 * Aggiungi quantità di vino ad una certa annata
+	 * @param vino
+	 * @param quantita
+	 */
+	public void aggiungiQta(Vino vino, int quantita){
+		boolean valido = true;
+		for(int i = 0; i < magazzino.size(); i++){
+			if(stringheUguali(magazzino.get(i).getNomeVino(),(vino.getNomeVino())) && stringheUguali(magazzino.get(i).getCasaProd(),(vino.getCasaProd()))){
+				int annata = magazzino.get(i).getAnnata();
+				int annataVinoSel = vino.getAnnata();
+				if(annata == annataVinoSel){
+					int qtaVino = magazzino.get(i).getQuantità();
+					int newqta = (qtaVino + quantita);
+					magazzino.get(i).setQuantità(newqta);
+					valido = false;
+				}	
+			}
+		}
+		if(valido){
+			throw new IllegalArgumentException(VINO_NON_PRES);
+		}	
+	}
+	
+	public int getIndiceVino(Vino vino){
+		int indice = -1;
+		for(int i = 0; i < magazzino.size(); i++){
+			if(stringheUguali(magazzino.get(i).getNomeVino(),(vino.getNomeVino())) && stringheUguali(magazzino.get(i).getCasaProd(),(vino.getCasaProd()))){
+				int annata = magazzino.get(i).getAnnata();
+				int annataVinoSel = vino.getAnnata();
+				if(annata == annataVinoSel){
+					indice = i;
+				}	
+			}
+		}
+			return indice;
+	}
+	/**
+	 * Verifica che il vino selezionato sia presente nella lista vini
+	 * @param vino
+	 * @return
+	 */
+	public boolean vinoPresente(Vino vino){
+		boolean presente = false;
+		for(int i = 0; i < magazzino.size(); i++){
+			if(stringheUguali(magazzino.get(i).getNomeVino(),(vino.getNomeVino())) && stringheUguali(magazzino.get(i).getCasaProd(),(vino.getCasaProd()))){
+				int annata = magazzino.get(i).getAnnata();
+				int annataVinoSel = vino.getAnnata();
+				if(annata == annataVinoSel){
+					presente = true;
+				}	
+			}
+		}
+		return presente;
+	}
+	
+	public double acquistaBottiglie(Vino vino, int quantita){
+		double prezzo = 0;
+		if(vinoPresente(vino)){
+			
+		}
+		
+		return prezzo;
+	}
+	
+	
+	////////////////////////
+	public void modificaVino(Vino vino){
+		
+	}
+	
+	/**
+	 * Override toString()
+	 * @return String elencoVini
+	 */
+	public String toString(){
+		String elencoVini = "";
+		String elenco = VINI_PRESENTI;
+		for(Vino vino : magazzino){
+			elencoVini = elencoVini + vino.toString() + "\n";
+		}
+		return (elenco + elencoVini);
+	}
+	
+	/**
+	 * ritorna numero vini presenti in enoteca.
+	 * @return numeroVini;
+	 */
+	public int getNumeroVini(){
+		int n = magazzino.size();
+		return n;
+	}
+	
+	/**
+	 * Confronta se due stringhe sono uguali o meno
+	 * @param str1
+	 * @param str2
+	 * @return
+	 */
+	public static boolean stringheUguali(String str1, String str2){
+		if(str1.equals(str2)) return true;
+		else return false;
+	}
+}

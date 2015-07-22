@@ -1,0 +1,92 @@
+package GestioneNoleggio;
+
+import MyClass.MyMenu;
+
+public class MainNoleggio {
+
+	private static final String[] SCELTE = {"Gestione automezzi",
+                                            "Gestione noleggio automezzi"};
+	private static final String[] SCELTE_AUTO = {
+		"",
+		""
+	};
+	
+	public static void main(String[] args){
+
+		MyMenu menuPrincipale= new MyMenu("Noleggio automezzi", SCELTE);
+		ParcoMezzi parcoMezzi = new ParcoMezzi();
+		boolean finito = false;
+				
+		do{
+			int scelta = menuPrincipale.scegli(true);
+			
+			switch(scelta){
+			case 0: //esci
+				finito = true;
+				break;
+			case 1: //gestione automezzi
+				gestioneAutomezzi();
+				break;
+			case 2: //gestione noleggio
+			    gestioneNoleggio();
+				break;
+			default: //in caso si inserisca un valore non riconosciuto (teoricamente mai applicato)
+				System.out.println("comando non riconosciuto");
+				break;
+			}
+		}while(!finito);
+	}
+
+
+public void gestisciAutomezzi(){
+	MyMenu menuUtenti= new MyMenu("Gestione automezzi", SCELTE_AUTO);
+	boolean finito = false;
+	do{
+		int scelta = menuUtenti.scegli(true);
+
+		switch(scelta){
+		case 0:                      //esci
+			finito=true;
+			break;
+		case 1:                      //Visualizza lista utenti
+			if(clinica.getElencoUtenti().getNumeroUtenti() != 0){
+				System.out.println(clinica.getElencoUtenti().toStringDati());
+			}
+			else System.out.println(NO_UTENTI);
+			break;
+		case 2:                       //aggiungi utente
+			try{
+				Utente nuovoUtente = aggiungiParametriUtenti();
+				utenti = clinica.getElencoUtenti();
+				utenti.aggiungiUtente(nuovoUtente);
+				clinica.setElencoUtenti(utenti);
+			}
+			catch(IllegalArgumentException e){
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 3:                       //Cerca Utente usando codice
+			try{
+				utenti = clinica.getElencoUtenti();
+				int indice = clinica.getElencoUtenti().cercaUtenteCod(MyIOconsole.leggiStringa(INS_COD_FISC));
+				System.out.println(utenti.getUtente(indice).toString());
+			}
+			catch(IllegalArgumentException e){
+				System.out.println(e.getMessage());
+			}
+			break;
+		case 4:                        //Elimina utente usando codice 
+			try{
+				utenti = clinica.getElencoUtenti();
+				utenti.eliminaUtenteCod(MyIOconsole.leggiStringa(INS_COD_FISC));
+				clinica.setElencoUtenti(utenti);
+			}
+			catch(IllegalArgumentException e){
+				System.out.println(e.getMessage());
+			}
+			break;
+	}while(!finito);
+
+}
+}
+
